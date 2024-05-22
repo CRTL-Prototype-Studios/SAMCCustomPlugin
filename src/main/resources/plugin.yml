@@ -1,0 +1,4 @@
+name: SAMCCustomPlugin
+version: '${project.version}'
+main: cn.crtlprototypestudios.samccp.SAMCCustomPlugin
+api-version: '1.18'
