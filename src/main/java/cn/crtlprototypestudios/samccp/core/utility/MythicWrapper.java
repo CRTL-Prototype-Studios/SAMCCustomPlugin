@@ -3,6 +3,8 @@ package cn.crtlprototypestudios.samccp.core.utility;
 import io.lumine.mythic.api.mobs.MobManager;
 import io.lumine.mythic.api.mobs.MythicMob;
 import io.lumine.mythic.bukkit.MythicBukkit;
+import org.bukkit.Bukkit;
+import org.bukkit.World;
 
 import javax.annotation.Nullable;
 
@@ -27,5 +29,9 @@ public class MythicWrapper {
     @Nullable
     public static MythicMob getMythicMob(String mobName) {
         return getMobManagerInstance().getMythicMob(mobName).orElse(null);
+    }
+
+    public static int getWorldIndex(World world){
+        return Bukkit.getWorlds().indexOf(world);
     }
 }
