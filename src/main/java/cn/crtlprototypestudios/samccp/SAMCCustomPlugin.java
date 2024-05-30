@@ -1,5 +1,6 @@
 package cn.crtlprototypestudios.samccp;
 
+import cn.crtlprototypestudios.samccp.core.commands.SetCommand;
 import cn.crtlprototypestudios.samccp.core.scheduling.SchedulerWrapper;
 import cn.crtlprototypestudios.samccp.core.utility.Reference;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -19,7 +20,10 @@ public final class SAMCCustomPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-//        getServer().getPluginManager().registerEvents(new PlayerEventListener(), this);
+
+        SetCommand setCommand = new SetCommand();
+        getCommand(SetCommand.KEYWORD).setExecutor(setCommand);
+        getCommand(SetCommand.KEYWORD).setTabCompleter(setCommand);
 
         // Create the config file if it doesn't exist
         configFile = new File(getDataFolder(), Reference.CONFIG_FILE_NAME);

@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SetCommand implements CommandExecutor, TabCompleter {
+    public static final String KEYWORD = "set";
     protected static final String[] availableProperties = new String[]{
             ConfigReference.SPAWN_LOCATION, ConfigReference.MOB_NAME
     };
