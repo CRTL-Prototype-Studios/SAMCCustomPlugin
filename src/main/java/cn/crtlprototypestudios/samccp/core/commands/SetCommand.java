@@ -41,7 +41,8 @@ public class SetCommand implements CommandExecutor, TabCompleter {
             return true;
         } else if (args.length == 1){
             if (args[0].equalsIgnoreCase(availableProperties[0])){
-                SAMCCustomPlugin.getCustomConfig().set(ConfigReference.SPAWN_LOCATION, player.getLocation());
+                SAMCCustomPlugin.getInstance().getConfig().set(ConfigReference.SPAWN_LOCATION, player.getLocation());
+                SAMCCustomPlugin.getInstance().saveConfig();
             } else if (args[0].equalsIgnoreCase(availableProperties[1])){
                 player.sendMessage(usageMessage);
             }
@@ -51,7 +52,8 @@ public class SetCommand implements CommandExecutor, TabCompleter {
                     player.sendMessage(TextBuilder.component(ChatColor.RED, "Invalid mob name!"));
                     return true;
                 }
-                SAMCCustomPlugin.getCustomConfig().set("mobName", args[1]);
+                SAMCCustomPlugin.getInstance().getConfig().set("mobName", args[1]);
+                SAMCCustomPlugin.getInstance().saveConfig();
                 player.sendMessage(TextBuilder.component(ChatColor.GREEN, "Property ", TextBuilder.colored(availableProperties[1], ChatColor.GOLD), " is set!"));
             }
         }
