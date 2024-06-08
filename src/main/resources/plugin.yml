@@ -2,3 +2,9 @@ name: SAMCCustomPlugin
 version: '${project.version}'
 main: cn.crtlprototypestudios.samccp.SAMCCustomPlugin
 api-version: '1.18'
+
+commands:
+  set:
+    description: SAMC /set Command for setting configurations of custom features
+    usage: /set <property> <null|value>
+    permission: op
