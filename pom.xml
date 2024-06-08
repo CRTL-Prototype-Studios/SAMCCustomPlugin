@@ -6,7 +6,7 @@
 
   <groupId>cn.crtlprototypestudios</groupId>
   <artifactId>SAMCCustomPlugin</artifactId>
-  <version>0.1.3-alpha</version>
+  <version>0.1.3-alpha-hotfix1</version>
   <packaging>jar</packaging>
 
   <name>SAMCCustomPlugin</name>
