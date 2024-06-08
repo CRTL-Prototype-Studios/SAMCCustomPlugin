@@ -16,7 +16,7 @@ public class TextBuilder {
     public static TextComponent component(ChatColor messageColor, String... text){
         StringBuilder builder = new StringBuilder();
         for(String s : text)
-            builder.append(s).append(messageColor);
+            builder.append(messageColor).append(s);
 
         return Component.text(builder.toString());
     }
