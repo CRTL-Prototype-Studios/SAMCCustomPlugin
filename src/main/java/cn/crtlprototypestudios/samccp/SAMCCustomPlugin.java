@@ -2,6 +2,7 @@ package cn.crtlprototypestudios.samccp;
 
 import cn.crtlprototypestudios.samccp.core.commands.SetCommand;
 import cn.crtlprototypestudios.samccp.core.scheduling.SchedulerWrapper;
+import cn.crtlprototypestudios.samccp.core.tasks.DateCheckTask;
 import cn.crtlprototypestudios.samccp.core.utility.Reference;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -28,16 +29,13 @@ public final class SAMCCustomPlugin extends JavaPlugin {
         SetCommand setCommand = new SetCommand();
         Objects.requireNonNull(getCommand(SetCommand.KEYWORD)).setExecutor(setCommand);
         Objects.requireNonNull(getCommand(SetCommand.KEYWORD)).setTabCompleter(setCommand);
-        if (!configFile.exists()) {
-            saveResource(Reference.CONFIG_FILE_NAME, true);
-        }
-
-        // Load the configuration
-        customConfig = YamlConfiguration.loadConfiguration(configFile);
 
         // Plugin startup logic
         BukkitScheduler scheduler = this.getServer().getScheduler();
         SchedulerWrapper.setInstance(scheduler);
+
+        long period = 20L * 60 * getConfig().getLong("dateCheckEveryNMins");
+        scheduler.runTaskTimer(this, new DateCheckTask(), 0, period);
     }
 
     @Override

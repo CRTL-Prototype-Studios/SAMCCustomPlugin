@@ -51,3 +51,4 @@ public class DateCheckTask extends BukkitRunnable {
             SAMCCustomPlugin.getInstance().getLogger().info(!isExecuted ? "DateCheckTask Checked, SpawnEntityTask Not Executed" : "DateCheckTask Checked, SpawnEntityTask Executed");
     }
 }
+

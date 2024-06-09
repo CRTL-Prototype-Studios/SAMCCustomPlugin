@@ -1,2 +1,3 @@
 mobName: ""
 outputLog: true
+dateCheckEveryNMins: 10
